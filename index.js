@@ -5,7 +5,7 @@ const app = express()
 let List = {}
 
 
-app.get('/create', (req, res) => {
+app.post('/create', (req, res) => {
 
     const { title, description } = req.body
     const newObj = {
@@ -17,13 +17,13 @@ app.get('/create', (req, res) => {
     return res.send("Item add successfully")
     
 })
-app.get('/delete', (req, res) => {
+app.post('/delete', (req, res) => {
     const {id}=req.body
     
     delete List[id]
     return res.send("delete successfully")
 })
-app.get('/update', (req, res) => {
+app.put('/update', (req, res) => {
     const { title, description, id } = req.body
     const newObj = {
         title: title,
